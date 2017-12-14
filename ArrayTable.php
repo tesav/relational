@@ -1,6 +1,6 @@
 <?php
 
-namespace Relational;
+namespace Tesav\Relational;
 
 class ArrayTable {
 
@@ -235,15 +235,15 @@ class ArrayTable {
 	private function _conditionPrepare($condition, $vars) {
 		if ($condition = trim($condition)) {
 			$condition = preg_replace(array(
-				'/\$' . self::FIELD . '\s*\[\s*`(.*?)`\s*\]/',
+				'/\$' . static::FIELD . '\s*\[\s*`(.*?)`\s*\]/',
 				'/`(.*?)`/',
 				//
 				'/(?<![!=])==(?!=)/',
 				'/(?<![!=<>])=(?!=)/',
 				'/<>/'
 					), array(
-				'$' . self::FIELD . '["\1"]',
-				'$' . self::FIELD . '["\1"]',
+				'$' . static::FIELD . '["\1"]',
+				'$' . static::FIELD . '["\1"]',
 				//
 				'===',
 				'==',
@@ -259,9 +259,9 @@ class ArrayTable {
 			}
 			if ($this->_names) {
 				$condition = preg_replace_callback(
-						'/\$' . self::FIELD . '\s*\[\s*["\']?(.*?)["\']?\s*\]/'
+						'/\$' . static::FIELD . '\s*\[\s*["\']?(.*?)["\']?\s*\]/'
 						, function($m) {
-					return sprintf('$' . self::FIELD . '[%s]', $this->fieldExists($m[1]) ?
+					return sprintf('$' . static::FIELD . '[%s]', $this->fieldExists($m[1]) ?
 							sprintf('"%s"', $m[1]) :
 							$m[1]);
 				}, $condition);

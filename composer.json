@@ -11,5 +11,8 @@
 			"type": "vcs",
 			"url": "https://github.com/tesav/relational"
 		}
-	]
+	],
+	"autoload": {
+        "psr-0": { "Tesav\\Relational": "src/" }
+    }
 }

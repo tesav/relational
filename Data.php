@@ -1,6 +1,6 @@
 <?php
 
-namespace Relational;
+namespace Tesav\Relational;
 
 class Data extends ArrayTable {
 
@@ -21,21 +21,6 @@ class Data extends ArrayTable {
 			$this->set($names, $rows);
 		}
 	}
-
-	/* public function fromString($string, $hasNames = FALSE) {
-	  if ($string = $this->_cleanBOM($string)) {
-	  //$pattern = '/(?<=^|;)(?:"[^"]*"|[^;]*)/';
-	  $pattern = '/(?<=^|;)(?:".*?"(?=;|$)|[^;]*)/';
-	  $pattern = str_replace(';', $this->_delimiter, $pattern);
-	  $rows = array();
-	  foreach (preg_split("~\r?\n~", $string) as $str) {
-	  preg_match_all($pattern, $str, $m);
-	  array_push($rows, $this->_incomingRow($m[0]));
-	  }
-	  $names = $hasNames ? array_shift($rows) : array();
-	  $this->set($names, $rows);
-	  }
-	  } */
 
 	public function set(Array $names, Array $rows = array()) {
 		if ($names) {

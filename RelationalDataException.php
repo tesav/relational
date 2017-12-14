@@ -1,6 +1,6 @@
 <?php
 
-namespace Relational;
+namespace Tesav\Relational;
 
 class RelationalDataException extends \Exception {
 
