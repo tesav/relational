@@ -11,9 +11,11 @@ class ArrayTable {
 	private $_rows = array();
 
 	public function __construct(Array $names = NULL, Array $rows = NULL) {
-		$names = (array) $names;
-		$this->_rows = (array) $rows;
-		//
+		$names AND $this->setNames($names);
+		$rows AND $this->setRows($rows);
+	}
+
+	public function setNames(Array $names = array()) {
 		foreach ($this->_rows as &$row) {
 			$row = (array) $row;
 			// set names from rows
@@ -33,6 +35,11 @@ class ArrayTable {
 
 	public function getNames() {
 		return array_values($this->_names);
+	}
+
+	public function setRows(Array $rows = array()) {
+		$this->_rows = $rows;
+		$this->setNames();
 	}
 
 	public function getRows($keysRows = NULL) {
@@ -134,6 +141,7 @@ class ArrayTable {
 	}
 
 	public function insert(Array $fields = NULL, $defaultValue = NULL) {
+		$fields AND $this->setNames(array_keys($fields));
 		$rowKey = array_push($this->_rows, array_fill_keys($this->_names, $defaultValue)) - 1;
 		$this->_updateRow($fields, $rowKey);
 		return $rowKey;
