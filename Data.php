@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Util\Relational;
+namespace Relational;
 
 class Data extends ArrayTable {
 
