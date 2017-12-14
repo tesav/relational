@@ -13,6 +13,6 @@
 		}
 	],
 	"autoload": {
-        "psr-0": { "Tesav\\Relational": "src/" }
+        "psr-0": { "Relational": "src/" }
     }
 }

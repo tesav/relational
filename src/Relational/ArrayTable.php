@@ -1,6 +1,6 @@
 <?php
 
-namespace Tesav\Relational;
+namespace Relational;
 
 class ArrayTable {
 
