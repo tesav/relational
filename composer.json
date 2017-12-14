@@ -1,0 +1,15 @@
+{
+	"name": "tesav/relational",
+	"description": "CSV -> Relational Array Table -> CSV",
+	"homepage": "#",
+	"license": "MIT",
+	"require": {
+		"php": ">=5.4"
+	},
+	"repositories": [
+		{
+			"type": "vcs",
+			"url": "https://github.com/tesav/relational"
+		}
+	]
+}
